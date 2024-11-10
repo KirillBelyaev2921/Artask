@@ -7,6 +7,9 @@
 </head>
 <body>
 <section>
+
+  <div th:replace="menu :: menu"></div>
+
   <h1>Tree Structure</h1>
   <ul>
     <li th:replace="treeFragment :: nestedTree (treeItemList = ${homeTask})">

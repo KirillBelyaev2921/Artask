@@ -18,7 +18,7 @@ public class TaskController {
 
   @GetMapping("/tasks")
   public String getTaskPage(Model model) {
-    model.addAttribute("homeTask", taskService.getTaskById(0).orElseThrow());
+    model.addAttribute("homeTask", taskService.getTaskById(1).orElseThrow());
     return "tasks";
   }
 
