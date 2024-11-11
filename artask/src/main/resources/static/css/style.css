@@ -49,4 +49,85 @@ ul {
 .active {
   display: block;
 }
-view rawstyle.css hosted with ❤ by GitHub
+
+/* Reset and General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+/* Logo Styling */
+.menu-logo a {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu-logo a:hover {
+  color: #ddd;
+}
+
+/* Menu Links */
+.menu-links {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+}
+
+.menu-links li {
+  display: inline;
+}
+
+.menu-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.menu-links a:hover {
+  color: #ddd;
+}
+
+/* User Profile Links */
+.menu-user a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 16px;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.menu-user a:hover {
+  color: #ddd;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu-links, .menu-user {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

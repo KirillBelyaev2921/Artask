@@ -4,27 +4,17 @@
   <meta charset="UTF-8">
   <title>Tasks</title>
   <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript" th:src="@{/js/caret-expander.js}"></script>
 </head>
 <body>
 <section>
 
-  <div th:replace="menu :: menu"></div>
+  <header th:insert="~{fragments/menu :: menu}"></header>
 
   <h1>Tree Structure</h1>
   <ul>
-    <li th:replace="treeFragment :: nestedTree (treeItemList = ${homeTask})">
+    <li th:replace="~{fragments/treeFragment :: nestedTree (treeItemList = ${homeTask})}">
   </ul>
-  <script>
-    var toggler = document.getElementsByClassName("caret");
-    var i;
-
-    for (i = 0; i < toggler.length; i++) {
-      toggler[i].addEventListener("click", function () {
-        this.parentElement.querySelector(".nested").classList.toggle("active");
-        this.classList.toggle("caret-down");
-      });
-    }
-  </script>
 </section>
 
 </body>
