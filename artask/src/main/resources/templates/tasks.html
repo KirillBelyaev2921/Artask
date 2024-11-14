@@ -11,10 +11,35 @@
 
   <header th:insert="~{fragments/menu :: menu}"></header>
 
-  <h1>Tree Structure</h1>
-  <ul>
-    <li th:replace="~{fragments/treeFragment :: nestedTree (treeItemList = ${homeTask})}">
-  </ul>
+  <div class="container">
+    <aside class="tasks-view">
+      <div class="tree-view">
+        <ul>
+          <li th:replace="~{fragments/treeFragment :: nestedTree (treeItemList = ${homeTask})}">
+        </ul>
+      </div>
+      <div>
+<!--        Todo: add "Create new task" button-->
+      </div>
+    </aside>
+    <main class="task-details">
+      <h2 class="task-title">
+        <span th:text="${task.title}"></span>
+      </h2>
+      <div class="task-attributes">
+<!--        Todo: add attributes-->
+      </div>
+      <div class="task-children">
+        <ul th:each="child : ${task.tasks}">
+          <li th:text="${child.title}"></li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+
+
+<!--  <footer th:insert="~{fragments/footer :: footer}"></footer>-->
 </section>
 
 </body>
