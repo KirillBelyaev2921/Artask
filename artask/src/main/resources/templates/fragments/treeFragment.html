@@ -1,11 +1,14 @@
 <html lang="en">
 <ul class="nested" th:fragment="tree (treeItemList)">
   <li th:fragment="nestedTree (treeItemList)" th:each="treeItem : ${treeItemList}">
-    <span class="caret" th:unless="${treeItem.tasks.isEmpty()}"
-          th:text="${treeItem.title}" onclick="onCaretClick(this)">prototype</span>
-    <a class="menu-entry" th:if="${treeItem.tasks.isEmpty()}"
-       th:text="${treeItem.title}"></a>
-    <section th:replace="~{fragments/treeFragment :: tree (treeItemList=${treeItem.tasks})}"></section>
+    <details th:unless="${treeItem.tasks.isEmpty()}">
+      <summary th:text="${treeItem.title}"></summary>
+      <div>
+        <section th:replace="~{fragments/treeFragment :: tree (treeItemList=${treeItem.tasks})}"></section>
+      </div>
+    </details>
+    <span th:if="${treeItem.tasks.isEmpty()}" th:text="${treeItem.title}">prototype</span>
+
   </li>
 </ul>
 </html>
