@@ -2,12 +2,17 @@
 <ul class="nested" th:fragment="tree (treeItemList)">
   <li th:fragment="nestedTree (treeItemList)" th:each="treeItem : ${treeItemList}">
     <details th:unless="${treeItem.tasks.isEmpty()}">
-      <summary th:text="${treeItem.title}"></summary>
+      <summary>
+        <a th:text="${treeItem.title}" th:href="@{'/tasks/' + ${treeItem.id}}"></a>
+      </summary>
       <div>
-        <section th:replace="~{fragments/treeFragment :: tree (treeItemList=${treeItem.tasks})}"></section>
+        <section
+            th:replace="~{fragments/treeFragment :: tree (treeItemList=${treeItem.tasks})}"></section>
       </div>
     </details>
-    <span th:if="${treeItem.tasks.isEmpty()}" th:text="${treeItem.title}">prototype</span>
+    <span th:if="${treeItem.tasks.isEmpty()}">
+      <a th:text="${treeItem.title}" th:href="@{'/tasks/' + ${treeItem.id}}"></a>
+    </span>
 
   </li>
 </ul>
