@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Tasks</title>
   <link rel="stylesheet" href="/css/style.css">
-  <script type="text/javascript" th:src="@{/js/caret-expander.js}"></script>
 </head>
 <body>
 
@@ -18,7 +17,7 @@
       </ul>
     </nav>
     <div>
-      <!--        Todo: add "Create new task" button-->
+      <a th:href="@{/addTask}">Add Task</a>
     </div>
   </div>
 
@@ -27,7 +26,7 @@
       <span th:text="${task.title}"></span>
     </h2>
     <div class="task-attributes">
-      <!--        Todo: add attributes-->
+      <a th:href="@{'/addTask?id=' + ${task.getId()}}">Add Task</a>
     </div>
     <div class="task-children">
       <ul th:each="child : ${task.tasks}">

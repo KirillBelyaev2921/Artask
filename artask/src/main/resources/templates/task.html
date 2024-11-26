@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Task</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header th:insert="~{fragments/menu :: menu}"></header>
+
+<form th:action="@{/task}" th:object="${newTask}" method="post">
+
+  <input type="text" disabled th:value="${newTask.parentTask.title}">
+  <input type="hidden" th:value="${newTask.parentTask.id}" th:attr="name='parentTask.id'">
+
+  <input type="text" th:field="*{title}">
+
+  <button type="submit">Add task</button>
+</form>
+
+<!--  <footer th:insert="~{fragments/footer :: footer}"></footer>-->
+
+</body>
+</html>
