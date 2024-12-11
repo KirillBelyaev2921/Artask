@@ -8,9 +8,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import ua.arthead.artask.config.CommandLineRunnerConfig;
 import ua.arthead.artask.data.model.Task;
 
-@DataJpaTest
+@DataJpaTest(excludeAutoConfiguration = {CommandLineRunnerConfig.class})
 class TaskRepositoryTest {
 
   private TaskRepository taskRepository;
