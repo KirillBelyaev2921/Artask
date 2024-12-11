@@ -37,6 +37,9 @@ public class Task {
   @OneToMany(mappedBy = "parentTask", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Task> tasks = new ArrayList<>();
 
+  @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<TaskAttribute<?>> attributes = new ArrayList<>();
+
   public Task(String title) {
     this.title = title;
   }
