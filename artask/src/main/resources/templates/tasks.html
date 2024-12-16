@@ -26,12 +26,30 @@
       <span th:text="${task.title}"></span>
     </h2>
     <div class="task-attributes">
-      <a th:href="@{'/addTask?id=' + ${task.getId()}}">Add Task</a>
+      <table>
+        <tr>
+          <th scope="row">Duration</th>
+          <td th:text="${task.durationHours} + ' hours and ' + ${task.durationMinutes} + ' mins'"></td>
+        </tr>
+        <tr>
+          <th scope="row">Required time</th>
+          <td th:text="${task.getRequiredTime()}"></td>
+        </tr>
+        <tr>
+          <th scope="row">Is light required</th>
+          <td th:text="${task.isLightRequired}"></td>
+        </tr>
+        <tr>
+          <th scope="row">Is required</th>
+          <td th:text="${task.isRequired}"></td>
+        </tr>
+      </table>
     </div>
     <div class="task-children">
       <ul th:each="child : ${task.tasks}">
         <li th:text="${child.title}"></li>
       </ul>
+      <a th:href="@{'/addTask?id=' + ${task.getId()}}">Add Task</a>
     </div>
   </main>
 

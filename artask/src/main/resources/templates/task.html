@@ -14,7 +14,34 @@
   <input type="text" disabled th:value="${newTask.parentTask.title}">
   <input type="hidden" th:value="${newTask.parentTask.id}" th:attr="name='parentTask.id'">
 
-  <input type="text" th:field="*{title}">
+  <label>
+    Title
+    <input type="text" th:field="*{title}">
+  </label>
+  <label>
+    Duration hours
+    <input type="number" th:field="*{durationHours}">
+  </label>
+  <label>
+    Duration minutes
+    <input type="number" th:field="*{durationMinutes}">
+  </label>
+  <label>
+    Required From time
+    <input type="time" th:field="*{requiredFromTime}">
+  </label>
+  <label>
+    Required To time
+    <input type="time" th:field="*{requiredToTime}">
+  </label>
+  <label>
+    Is light required
+    <input type="checkbox" th:field="*{isLightRequired}">
+  </label>
+  <label>
+    Is required
+    <input type="checkbox" th:field="*{isRequired}">
+  </label>
 
   <button type="submit">Add task</button>
 </form>

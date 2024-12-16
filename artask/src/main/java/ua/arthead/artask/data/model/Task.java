@@ -10,7 +10,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import java.time.Duration;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,8 @@ public class Task {
   private Long id;
 
   private String title;
-  private Duration duration;
+  private int durationHours;
+  private int durationMinutes;
   private Boolean isLightRequired;
   private LocalTime requiredFromTime;
   private LocalTime requiredToTime;
@@ -51,5 +51,10 @@ public class Task {
   public Task(String title, Task parentTask) {
     this.title = title;
     this.parentTask = parentTask;
+  }
+
+  public String getRequiredTime() {
+    if (requiredFromTime == null || requiredToTime == null) return "";
+    return requiredFromTime + " " + requiredToTime;
   }
 }
