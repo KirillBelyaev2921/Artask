@@ -10,6 +10,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
@@ -29,6 +31,11 @@ public class Task {
   private Long id;
 
   private String title;
+  private Duration duration;
+  private Boolean isLightRequired;
+  private LocalTime requiredFromTime;
+  private LocalTime requiredToTime;
+  private Boolean isRequired;
 
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "parent_task_id")
